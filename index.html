@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Town</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="row">
+                    <!-- Meses -->
+                    <label for="Meses" class="form-label">Meses</label>
+                    <div class="col-10">
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="Meses" min="1" max="12" disabled>
+                                <span class="input-group-text">/ 12</span>
+                            </div>
+                            <div class="progress mt-2" role="progressbar">
+                                <div class="progress-bar" id="MesesProgressBar"></div>
+                            </div>
+                            <div class="progress-stacked mt-1" style="height: 1px">
+                                <div class="progress" role="progressbar" style="width: 16.66%">
+                                    <div class="progress-bar bg-light"></div>
+                                </div>
+                                <div class="progress" role="progressbar" style="width: 83.33%">
+                                    <div class="progress-bar bg-danger"></div>
+                                </div>
+                            </div>
+                            <div class="progress-stacked mt-1" style="height: 1px">
+                                <div class="progress" role="progressbar" style="width: 25%">
+                                    <div class="progress-bar bg-light"></div>
+                                </div>
+                                <div class="progress" role="progressbar" style="width: 75%">
+                                    <div class="progress-bar bg-info"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" id="ProximoMes" class="btn btn-primary">Próximo mês</button>
+                    </div>
+                    <div class="col-6">
+                        <!-- Dinheiro em caixa -->
+                        <div class="mb-3">
+                            <label for="DinheiroEmCaixa" class="form-label">Dinheiro em caixa</label>
+                            <div class="text-center">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="DinheiroEmCaixa" min="0">
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="DinheiroMais10"
+                                        class="btn btn-outline-success">+10</button>
+                                    <button type="button" id="DinheiroMais100"
+                                        class="btn btn-outline-success">+100</button>
+                                </div>
+                                <div class="btn-group " role="group">
+                                    <button type="button" id="DinheiroMenos10"
+                                        class="btn btn-outline-danger">-10</button>
+                                    <button type="button" id="DinheiroMenos100"
+                                        class="btn btn-outline-danger">-100</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <!-- Lucros mensais -->
+                        <div class="mb-3">
+                            <label for="LucrosMensais" class="form-label">Lucros mensais</label>
+                            <div class="text-center">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="LucrosMensais" min="0">
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="LucroMais10" class="btn btn-outline-success">+10</button>
+                                    <button type="button" id="LucroMais100"
+                                        class="btn btn-outline-success">+100</button>
+                                </div>
+                                <div class="btn-group " role="group">
+                                    <button type="button" id="LucroMenos10" class="btn btn-outline-danger">-10</button>
+                                    <button type="button" id="LucroMenos100"
+                                        class="btn btn-outline-danger">-100</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Anotações diversas -->
+                    <div class="row">
+                        <label class="form-label">Anotações diversas</label>
+                        <div class="col-6">
+                            <textarea class="form-control" rows="4" id="AnotacoesDiversas1"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <textarea class="form-control" rows="4" id="AnotacoesDiversas2"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Relações -->
+                        <div class="mb-3">
+                            <label for="Relações" class="form-label">Relações</label>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>B</th>
+                                        <th>N</th>
+                                        <th>R</th>
+                                        <th>Nome</th>
+                                        <th>B</th>
+                                        <th>N</th>
+                                        <th>R</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes1Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes1B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes1N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes1R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes2Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes2B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes2N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes2R"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes3Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes3B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes3N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes3R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes4Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes4B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes4N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes4R"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes5Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes5B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes5N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes5R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes6Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes6B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes6N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes6R"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes7Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes7B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes7N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes7R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes8Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes8B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes8N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes8R"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes9Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes9B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes9N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes9R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes10Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes10B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes10N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes10R"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="Relacoes11Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes11B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes11N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes11R"></td>
+                                        <td><input type="text" class="form-control" id="Relacoes12Nome"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes12B"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes12N"></td>
+                                        <td><input type="checkbox" class="form-check-input" id="Relacoes12R"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <div class="row">
+                    <!-- Habitantes -->
+                    <div class="mb-3">
+                        <label for="Habitantes" class="form-label">Habitantes</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="HabitantesProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Habitantes" min="0" max="150">
+                            <span class="input-group-text">/ 150</span>
+                        </div>
+                    </div>
+                    <!-- Habitantes de prestígio -->
+                    <div class="mb-3">
+                        <label for="HabitantesDePrestigio" class="form-label">Habitantes de prestígio</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="HabitantesDePrestigioProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="HabitantesDePrestigio" min="0" max="20">
+                            <span class="input-group-text">/ 20</span>
+                        </div>
+                    </div>
+                    <!-- Bandidos procurados -->
+                    <div class="mb-3">
+                        <label for="BandidosProcurados" class="form-label">Bandidos procurados</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="BandidosProcuradosProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="BandidosProcurados" min="0" max="10">
+                            <span class="input-group-text">/ 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <!-- Trabalho -->
+                    <div class="mb-3">
+                        <label for="Trabalho" class="form-label">Trabalho</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="TrabalhoProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Trabalho" min="0" max="80">
+                            <span class="input-group-text">/ 80</span>
+                        </div>
+                    </div>
+                    <!-- Comida -->
+                    <div class="mb-3">
+                        <label for="Comida" class="form-label">Comida</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="ComidaProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Comida" min="0" max="160" step="5">
+                            <span class="input-group-text">/ 160</span>
+                        </div>
+                    </div>
+                    <!-- Moedas de ouro -->
+                    <div class="mb-3">
+                        <label for="MoedasDeOuro" class="form-label">Moedas de ouro</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar bg-warning" id="MoedasDeOuroProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="MoedasDeOuro" min="0" max="10">
+                            <span class="input-group-text">/ 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <!-- Satisfação -->
+                    <div class="mb-3">
+                        <label for="Satisfacao" class="form-label">Satisfação</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="SatisfacaoProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Satisfacao" min="0" max="100">
+                            <span class="input-group-text">/ 100</span>
+                        </div>
+                    </div>
+                    <!-- Segurança -->
+                    <div class="mb-3">
+                        <label for="Seguranca" class="form-label">Segurança</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="SegurancaProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Seguranca" min="0" max="32">
+                            <span class="input-group-text">/ 32</span>
+                        </div>
+                    </div>
+                    <!-- Tesouros -->
+                    <div class="mb-3">
+                        <label for="Tesouros" class="form-label">Tesouros</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar bg-warning" id="TesourosProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Tesouros" min="0" max="10">
+                            <span class="input-group-text">/ 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <!-- Saúde -->
+                    <div class="mb-3">
+                        <label for="Saude" class="form-label">Saúde</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="SaudeProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Saude" min="0" max="32">
+                            <span class="input-group-text">/ 32</span>
+                        </div>
+                    </div>
+                    <!-- Escolaridade -->
+                    <div class="mb-3">
+                        <label for="Escolaridade" class="form-label">Escolaridade</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar" id="EscolaridadeProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Escolaridade" min="0" max="32">
+                            <span class="input-group-text">/ 32</span>
+                        </div>
+                    </div>
+                    <!-- Ferraduras -->
+                    <div class="mb-3">
+                        <label for="Ferraduras" class="form-label">Ferraduras</label>
+                        <div class="progress mb-2" role="progressbar">
+                            <div class="progress-bar bg-warning" id="FerradurasProgressBar"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="Ferraduras" min="0" max="15">
+                            <span class="input-group-text">/ 18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Cartuchos -->
+            <div class="col-6">
+                <label for="Cartuchos" class="form-label">Cartuchos</label>
+                <div class="progress mb-2" role="progressbar">
+                    <div class="progress-bar" id="CartuchosProgressBar"></div>
+                </div>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="Cartuchos" min="0" max="18">
+                    <span class="input-group-text">/ 18</span>
+                </div>
+            </div>
+            <!-- Última página -->
+            <div class="col-3">
+                <label for="UltimaPagina" class="form-label">Última página</label>
+                <input type="text" class="form-control" id="UltimaPagina">
+            </div>
+            <!-- Botões -->
+            <div class="col-3 mt-4">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="NovoJogo">Novo jogo</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#" id="Carregar">Carregar</a></li>
+                        <li><a class="dropdown-item" href="#" id="Salvar">Salvar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div class="toast align-items-center" role="alert" id="ToastSalvar">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Jogo salvo.
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+        <div class="toast align-items-center" role="alert" id="ToastCarregar">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Jogo carregado.
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+        <div class="toast align-items-center" role="alert" id="ToastNovoJogo">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Novo jogo iniciado.
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
